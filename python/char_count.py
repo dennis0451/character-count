@@ -1,21 +1,24 @@
 from functools import cmp_to_key
 
 def char_count(str):
+  #create empty dictionary
   chars ={}
+  #add character count into dictionary
   for char in str:
     if char != " ":
       if char in chars:
         chars[char] += 1
       else:
         chars[char] = 1
-  # //turn char dict to list
+  # turn char dictionary to list of characters
   list_of_chars = []
   for key,val in chars.items():
     list_of_chars.append([key]+ [val])
-    print(sorted(list_of_chars, key=lambda x : (-x[1], x[0])))
-  return sorted(list_of_chars, key=lambda x : (-x[1], x[0]))
-  # print(list_of_chars)
+  #sort list of characters
+  sorted_list_of_chars = sorted(list_of_chars, key=lambda x : (-x[1], x[0]))
+  ##return sorted list of characters
+  return sorted_list_of_chars 
 
-# print(char_count("an apple a day will keep the doctor away"))
+char_count("an apple a day will keep the doctor away")
 
 
